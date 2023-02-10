@@ -138,7 +138,7 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values.',
     'string' => 'The :attribute يجب ان يكون نص',
     'timezone' => 'The :attribute must be a valid timezone.',
-    'unique' => 'The :attribute يجب ان لا يتكرر',
+    'unique' => 'The :attribute هذا الحقل موجود',
     'uploaded' => 'The :attribute failed to upload.',
     'uppercase' => 'The :attribute must be uppercase.',
     'url' => 'The :attribute must be a valid URL.',

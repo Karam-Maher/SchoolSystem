@@ -16,4 +16,5 @@ return [
     'Edit' => 'Edit',
     'Delete' => 'Delete',
     'Close' => 'Close',
+    'delete_Grade_Error'=>'The Grade cannot be deleted because there are classes attached to it',
 ];

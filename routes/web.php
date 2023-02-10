@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\Grade\GradeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Grade\GradeController;
+use App\Http\Controllers\Classroom\MyClassController;
+use App\Http\Controllers\Classroom\ClassroomController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -37,7 +39,11 @@ Route::group([
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth', 'verified']
 ], function () {
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
-    Route::resource('grades',GradeController::class);
+    Route::resource('grades', GradeController::class);
+    Route::resource('classrooms', ClassroomController::class);
+    Route::post('delete_all', [ClassroomController::class, 'delete_all'])->name('delete_all');
+    Route::post('filter_classes', [ClassroomController::class, 'filter_classes'])->name('filter_classes');
+
 });
 
 

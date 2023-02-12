@@ -14,4 +14,14 @@ class Grade extends Model
     protected $fillable = ['name', 'notes'];
     protected $table = 'grades';
     public $timestamps = true;
+
+    /**
+     * Get all of the comments for the Grade
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function sections()
+    {
+        return $this->hasMany(Section::class, 'grade_id');
+    }
 }

@@ -44,8 +44,8 @@ Route::group([
     Route::post('delete_all', [ClassroomController::class, 'delete_all'])->name('delete_all');
     Route::post('filter_classes', [ClassroomController::class, 'filter_classes'])->name('filter_classes');
     Route::resource('sections', SectionController::class);
-    Route::get('classes/{id}',[SectionController::class,'getClasses']);
-
+    Route::get('classes/{id}', [SectionController::class, 'getClasses']);
+    Route::view('add_parent','livewire.show_Form')->name('add_parent');
 });
 
 

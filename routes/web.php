@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Grade\GradeController;
 use App\Http\Controllers\Classroom\ClassroomController;
 use App\Http\Controllers\Section\SectionController;
+use App\Http\Controllers\Teacher\TeacherController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -46,6 +47,8 @@ Route::group([
     Route::resource('sections', SectionController::class);
     Route::get('classes/{id}', [SectionController::class, 'getClasses']);
     Route::view('add_parent','livewire.show_Form')->name('add_parent');
+    Route::resource('teachers', TeacherController::class);
+
 });
 
 

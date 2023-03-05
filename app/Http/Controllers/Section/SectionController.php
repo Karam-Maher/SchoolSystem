@@ -7,6 +7,7 @@ use App\Http\Requests\StoreSections;
 use App\Models\Classroom;
 use App\Models\Grade;
 use App\Models\Section;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class SectionController extends Controller
@@ -20,8 +21,8 @@ class SectionController extends Controller
     {
         $grades = Grade::with('sections')->get();
         $list_Grades = Grade::all();
-
-        return view('dashboard.sections.index', compact('grades', 'list_Grades'));
+        $teachers = Teacher::all();
+        return view('dashboard.sections.index', compact('grades', 'list_Grades', 'teachers'));
     }
     /**
      * Store a newly created resource in storage.
@@ -41,6 +42,7 @@ class SectionController extends Controller
             $Sections->class_id = $request->class_id;
             $Sections->status = 1;
             $Sections->save();
+            $Sections->teachers()->attach($request->teacher_id);
             toastr()->success(trans('messages.success'));
 
             return redirect()->route('sections.index');
@@ -72,6 +74,12 @@ class SectionController extends Controller
                 $sections->status = 2;
             }
 
+            // update pivot tABLE
+            if (isset($request->teacher_id)) {
+                $sections->teachers()->sync($request->teacher_id);
+            } else {
+                $sections->teachers()->sync(array());
+            }
             $sections->save();
             toastr()->success(trans('messages.update'));
 

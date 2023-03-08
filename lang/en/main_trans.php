@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     'Dashboard'=>'Dashboard',
     'Dashboard_page'=>'Dashboard',
     'Main_title' => 'MoraSoft School Management Program',
@@ -14,7 +13,8 @@ return [
     'sections'=>'Sections',
     'List_sections'=>'List Sections',
     'students'=>'Students',
-    'Add_student'=>'Add Student',
+    'add_student'=>'Add student',
+    'list_students'=>'list Students',
     'information_student'=>'Information Students',
     'Students_upgrade'=>'Students Upgrade',
     'Graduate_students'=>'Graduate Students',

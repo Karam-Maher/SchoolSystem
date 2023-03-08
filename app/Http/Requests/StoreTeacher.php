@@ -24,7 +24,7 @@ class StoreTeacher extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|unique:teachers,email,' . $this->id,
+            'email' => 'required|email|unique:teachers,email,'.$this->id,
             'password' => 'required|min:8',
             'name_ar' => 'required',
             'name_en' => 'required',

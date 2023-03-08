@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Grade\GradeController;
 use App\Http\Controllers\Classroom\ClassroomController;
 use App\Http\Controllers\Section\SectionController;
+use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Teacher\TeacherController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -33,8 +34,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth', 'verified']
@@ -46,10 +45,10 @@ Route::group([
     Route::post('filter_classes', [ClassroomController::class, 'filter_classes'])->name('filter_classes');
     Route::resource('sections', SectionController::class);
     Route::get('classes/{id}', [SectionController::class, 'getClasses']);
-    Route::view('add_parent','livewire.show_Form')->name('add_parent');
+    Route::view('add_parent', 'livewire.show_Form')->name('add_parent');
     Route::resource('teachers', TeacherController::class);
-
+    Route::resource('students', StudentController::class);
+    Route::get('Get_classrooms/{id}', [StudentController::class, 'Get_classrooms']);
+    Route::get('Get_sections/{id}', [StudentController::class, 'Get_sections']);
 });
-
-
 require __DIR__ . '/auth.php';

@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.master')
 @push('styles')
     @toastr_css
-    @endpush
+@endpush
 @section('title')
     {{trans('main_trans.add_student')}}
 @endsection
@@ -28,7 +28,7 @@
                     </div>
                 @endif
 
-                <form method="post"  action="{{ route('students.store') }}" autocomplete="off">
+                <form method="post"  action="{{ route('students.store') }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <h6 style="font-family: 'Cairo', sans-serif;color: blue">{{trans('Students.personal_information')}}</h6><br>
                         <div class="row">
@@ -167,6 +167,12 @@
                             </div>
                         </div>
                         </div><br>
+                            <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="academic_year">{{trans('Students_trans.Attachments')}} : <span class="text-danger">*</span></label>
+                            <input type="file" accept="image/*" name="photos[]" multiple>
+                        </div>
+                    </div>
                     <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{trans('Students.submit')}}</button>
                 </form>
 

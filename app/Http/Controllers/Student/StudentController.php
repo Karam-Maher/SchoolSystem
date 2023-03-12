@@ -53,9 +53,9 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show($id)
     {
-        //
+        return $this->student->showStudent($id);
     }
 
     /**
@@ -100,5 +100,19 @@ class StudentController extends Controller
     public function Get_sections($id)
     {
         return $this->student->Get_sections($id);
+    }
+    public function upload_attachment(Request $request)
+    {
+        return $this->student->updateStudent($request);
+    }
+
+    public function download_attachment($studentsname, $filename)
+    {
+        return $this->student->download_attachment($studentsname, $filename);
+    }
+
+    public function delete_attachment(Request $request)
+    {
+        return $this->student->delete_attachment($request);
     }
 }

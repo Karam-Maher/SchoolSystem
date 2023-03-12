@@ -46,9 +46,18 @@ Route::group([
     Route::resource('sections', SectionController::class);
     Route::get('classes/{id}', [SectionController::class, 'getClasses']);
     Route::view('add_parent', 'livewire.show_Form')->name('add_parent');
+
     Route::resource('teachers', TeacherController::class);
+
     Route::resource('students', StudentController::class);
     Route::get('Get_classrooms/{id}', [StudentController::class, 'Get_classrooms']);
     Route::get('Get_sections/{id}', [StudentController::class, 'Get_sections']);
+
+    Route::post('upload_attachment', [StudentController::class, 'upload_attachment'])
+        ->name('upload_attachment');
+    Route::get('download_attachment/{studentsname}/{filename}', [StudentController::class, 'download_attachment'])
+        ->name('download_attachment');
+    Route::post('delete_attachment', [StudentController::class, 'delete_attachment'])
+        ->name('delete_attachment');
 });
 require __DIR__ . '/auth.php';

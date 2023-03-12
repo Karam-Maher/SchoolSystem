@@ -1,17 +1,20 @@
 @extends('dashboard.layouts.master')
-@section('css')
-@toastr_css
+
+@push('styles')
+    @toastr_css
+@endpush
+
 @section('title')
 {{trans('main_trans.list_students')}}
-@stop
 @endsection
-@section('page-header')
+
 <!-- breadcrumb -->
 @section('PageTitle')
 {{trans('main.list_students')}}
-@stop
+
 <!-- breadcrumb -->
 @endsection
+
 @section('content')
 <!-- row -->
 <div class="row">
@@ -56,7 +59,7 @@
                                                     data-target="#Delete_Student{{ $student->id }}"
                                                     title="{{ trans('Grades.Delete') }}"><i
                                                         class="fa fa-trash"></i></button>
-                                                <a href="#" class="btn btn-warning btn-sm" role="button"
+                                                <a href="{{ route('students.show',$student->id) }}" class="btn btn-warning btn-sm" role="button"
                                                     aria-pressed="true"><i class="far fa-eye"></i></a>
                                             </td>
                                         </tr>
@@ -73,7 +76,7 @@
 </div>
 <!-- row closed -->
 @endsection
-@section('js')
+@push('scripts')
 @toastr_js
 @toastr_render
-@endsection
+@endpush

@@ -30,4 +30,5 @@ return [
     'created_at' => 'created_at',
     'Download' => 'Download',
     'delete' => 'Delete',
+    'Student promotion management' => 'Student promotion management',
 ];

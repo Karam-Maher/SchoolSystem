@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Grade\GradeController;
 use App\Http\Controllers\Classroom\ClassroomController;
 use App\Http\Controllers\Section\SectionController;
+use App\Http\Controllers\Student\PromotionController;
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Teacher\TeacherController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -59,5 +60,8 @@ Route::group([
         ->name('download_attachment');
     Route::post('delete_attachment', [StudentController::class, 'delete_attachment'])
         ->name('delete_attachment');
+
+    Route::resource('promotios', PromotionController::class);
+
 });
 require __DIR__ . '/auth.php';

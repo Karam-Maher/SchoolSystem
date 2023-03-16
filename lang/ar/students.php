@@ -31,4 +31,6 @@ return [
     'created_at' => 'تاريخ الاضافة',
     'Download' => 'تحميل',
     'delete' => 'حذف',
+    'Student promotion management' => 'ادارة ترقية الطلاب',
+
 ];

@@ -29,7 +29,7 @@ return new class extends Migration
                 ->on('nationalities');
             $table->foreignId('blood_type_father_id')
                 ->references('id')
-                ->on('bloods');
+                ->on('type_bloods');
             $table->foreignId('religion_father_id')
                 ->references('id')
                 ->on('religions');
@@ -46,7 +46,7 @@ return new class extends Migration
                 ->on('nationalities');
             $table->foreignId('blood_type_mother_id')
                 ->references('id')
-                ->on('bloods');
+                ->on('type_bloods');
             $table->foreignId('religion_mother_id')
                 ->references('id')
                 ->on('religions');

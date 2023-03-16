@@ -65,7 +65,7 @@ class GradeController extends Controller
             $validated = $request->validated();
             $grades = Grade::findOrFail($request->id);
             $grades->update([
-                $grades->Name = ['ar' => $request->name, 'en' => $request->name_en],
+                $grades->name = ['ar' => $request->name, 'en' => $request->name_en],
                 $grades->notes = $request->notes,
             ]);
             toastr()->success(trans('messages.update'));

@@ -106,7 +106,7 @@
                     dataType: "json",
                     success: function (data) {
                         $('select[name="classroom_id_new"]').empty();
-                        $('select[name="classroom_id_new"]').append('<option selected disabled >{{trans('Parent_trans.Choose')}}...</option>');
+                        $('select[name="classroom_id_new"]').append('<option selected disabled >{{trans('parent.Choose')}}...</option>');
                         $.each(data, function (key, value) {
                             $('select[name="classroom_id_new"]').append('<option value="' + key + '">' + value + '</option>');
                         });

@@ -9,7 +9,7 @@ class Fee extends Model
 {
     use HasTranslations;
     public $translatable = ['title'];
-    protected $fillable = ['title', 'amount', 'grade_id', 'classroom_id', 'year', 'description'];
+    protected $fillable = ['title', 'amount', 'grade_id', 'classroom_id', 'year', 'description','fee_type'];
 
 
     // علاقة بين الرسوم الدراسية والمراحل الدراسية لجب اسم المرحلة
